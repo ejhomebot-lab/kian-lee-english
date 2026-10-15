@@ -190,11 +190,41 @@
     speechSynthesis.onvoiceschanged = loadVoices;
   }
 
+
+  var iosUnlocked = false;
+  var unlockTimer = null;
+
+  function showSpeechToast(msg){
+    var el = document.getElementById('speech-toast');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'speech-toast';
+      el.setAttribute('role', 'status');
+      el.style.cssText = 'position:fixed;left:50%;bottom:18%;transform:translateX(-50%);z-index:9999;max-width:88%;padding:10px 14px;border-radius:12px;background:rgba(40,28,20,.92);color:#fff;font-size:14px;line-height:1.4;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.25);pointer-events:none;opacity:0;transition:opacity .25s';
+      document.body.appendChild(el);
+    }
+    el.textContent = msg;
+    el.style.opacity = '1';
+    clearTimeout(el._hide);
+    el._hide = setTimeout(function(){ el.style.opacity = '0'; }, 4200);
+  }
+
   function pickVoice(){
     var list = accent==='uk' ? prefer.uk : prefer.us;
+    // iOS preferred names first (Samantha US; Karen/Moira UK; Daniel UK male fallback)
+    var iosNames = accent==='uk'
+      ? [/karen/i, /moira/i, /serena/i, /daniel/i, /martha/i]
+      : [/samantha/i, /susan/i, /zira/i, /karen/i];
+    for (var n = 0; n < iosNames.length; n++) {
+      for (var k = 0; k < voices.length; k++) {
+        if (iosNames[n].test(voices[k].name || '') && /^en/i.test(voices[k].lang || '')) {
+          return voices[k];
+        }
+      }
+    }
     if (list.length) return list[0].v;
-    for (var k=0;k<voices.length;k++){
-      if (/^en/i.test(voices[k].lang)) return voices[k];
+    for (var k2 = 0; k2 < voices.length; k2++){
+      if (/^en/i.test(voices[k2].lang)) return voices[k2];
     }
     return null;
   }
@@ -202,6 +232,7 @@
   function clearTimers(){
     if (fallbackTimer) { clearTimeout(fallbackTimer); fallbackTimer = null; }
     if (keepAliveTimer) { clearInterval(keepAliveTimer); keepAliveTimer = null; }
+    if (unlockTimer) { clearTimeout(unlockTimer); unlockTimer = null; }
   }
 
   function cancelSpeech(){
@@ -212,9 +243,45 @@
     }
   }
 
+  // iOS Safari: first speak must be inside a user gesture; unlock with a near-empty utterance.
+  function unlockSpeech(then){
+    if (iosUnlocked) { if (then) then(); return; }
+    if (!window.speechSynthesis) {
+      showSpeechToast('呢個瀏覽器唔支援朗讀。請用 Safari 開，並關靜音掣。');
+      if (then) then();
+      return;
+    }
+    var done = false;
+    function finishUnlock(){
+      if (done) return;
+      done = true;
+      iosUnlocked = true;
+      if (then) then();
+    }
+    try {
+      var u0 = new SpeechSynthesisUtterance(' ');
+      u0.volume = 0.01;
+      u0.rate = 1;
+      u0.lang = accent==='uk' ? 'en-GB' : 'en-US';
+      var v0 = pickVoice();
+      if (v0) u0.voice = v0;
+      u0.onend = u0.onerror = function(){ finishUnlock(); };
+      speechSynthesis.speak(u0);
+      if (speechSynthesis.paused) speechSynthesis.resume();
+      // if onend never fires, still proceed
+      setTimeout(finishUnlock, 120);
+    } catch (e) {
+      finishUnlock();
+    }
+  }
+
   function speakText(text, onDone){
     if (!text) { if (onDone) onDone(false); return; }
-    if (!window.speechSynthesis) { if (onDone) onDone(false); return; }
+    if (!window.speechSynthesis) {
+      showSpeechToast('呢個瀏覽器唔支援朗讀。請用 Safari 開；微信／WhatsApp 內置瀏覽器可能無聲。');
+      if (onDone) onDone(false);
+      return;
+    }
     cancelSpeech();
     var myToken = speakToken;
     var finished = false;
@@ -224,31 +291,36 @@
       clearTimers();
       if (onDone) onDone(ok);
     }
-    var u = new SpeechSynthesisUtterance(text);
-    u.lang = accent==='uk' ? 'en-GB' : 'en-US';
-    u.rate = rate;
-    u.pitch = 1.05;
-    var v = pickVoice();
-    if (v) u.voice = v;
-    u.onend = function(){ finish(true); };
-    u.onerror = function(){ finish(false); };
-    // Safari / iPad: speech can stall; resume periodically while autoplaying
-    keepAliveTimer = setInterval(function(){
+    // Critical on iOS: delay after cancel before speak (~50–100ms)
+    unlockTimer = setTimeout(function(){
       if (myToken !== speakToken) return;
+      var u = new SpeechSynthesisUtterance(text);
+      u.lang = accent==='uk' ? 'en-GB' : 'en-US';
+      u.rate = rate;
+      u.pitch = 1.05;
+      var v = pickVoice();
+      if (v) u.voice = v;
+      u.onend = function(){ finish(true); };
+      u.onerror = function(){ finish(false); };
+      // iOS often pauses mid-utterance; resume every ~8s
+      keepAliveTimer = setInterval(function(){
+        if (myToken !== speakToken) return;
+        try {
+          if (speechSynthesis.paused) speechSynthesis.resume();
+          else speechSynthesis.resume();
+        } catch (e) {}
+      }, 8000);
+      var estMs = Math.max(2200, Math.min(14000, text.split(/\s+/).length * (1100 / Math.max(rate, 0.5)) + 900));
+      fallbackTimer = setTimeout(function(){ finish(false); }, estMs);
       try {
+        speechSynthesis.speak(u);
         if (speechSynthesis.paused) speechSynthesis.resume();
-      } catch (e) {}
-    }, 4000);
-    // If speech never fires onend (common quirk), advance after estimated duration
-    var estMs = Math.max(2200, Math.min(14000, text.split(/\s+/).length * (1100 / Math.max(rate, 0.5)) + 900));
-    fallbackTimer = setTimeout(function(){ finish(false); }, estMs);
-    try {
-      speechSynthesis.speak(u);
-      if (speechSynthesis.paused) speechSynthesis.resume();
-    } catch (e) {
-      finish(false);
-    }
+      } catch (e) {
+        finish(false);
+      }
+    }, 60);
   }
+
 
   function hideDone(){ doneBanner.classList.remove('show'); }
 
@@ -302,21 +374,34 @@
     autoplay = true;
     syncAutoUI();
     hideDone();
-    // User gesture starts the chain (required on iPad Safari)
-    speakSlide(function(){
-      if (!autoplay) return;
-      if (i >= slides.length - 1) {
-        stopAutoplay(true);
-        return;
-      }
-      setTimeout(function(){
+    // User gesture: unlock iOS speech first, then speak chain
+    unlockSpeech(function(){
+      speakSlide(function(){
         if (!autoplay) return;
-        show(i+1, { fromAuto: true });
-      }, 450);
+        if (i >= slides.length - 1) {
+          stopAutoplay(true);
+          return;
+        }
+        setTimeout(function(){
+          if (!autoplay) return;
+          show(i+1, { fromAuto: true });
+        }, 450);
+      });
     });
   }
 
-  show(0, { skipSpeak: true }); // don't auto-speak until user taps (iPad-friendly)
+  show(0, { skipSpeak: true });
+
+  // Tip for in-app browsers (WeChat / WhatsApp) where TTS is often blocked
+  try {
+    var ua = navigator.userAgent || '';
+    if (/MicroMessenger|WhatsApp|FBAN|FBAV|Line\//i.test(ua)) {
+      setTimeout(function(){
+        showSpeechToast('請用 Safari 開啟本頁先會有聲（微信／WhatsApp 內置瀏覽器通常無聲）。');
+      }, 600);
+    }
+  } catch (e) {}
+ // don't auto-speak until user taps (iPad-friendly)
 
   function next(){
     if (i >= slides.length - 1) {
@@ -339,7 +424,7 @@
   document.getElementById('speak-now').addEventListener('click', function(e){
     e.stopPropagation();
     if (autoplay) stopAutoplay(false);
-    speakSlide();
+    unlockSpeech(function(){ speakSlide(); });
   });
   autoBtn.addEventListener('click', function(e){
     e.stopPropagation();
@@ -352,12 +437,12 @@
   document.getElementById('v-uk').addEventListener('click', function(e){
     e.stopPropagation(); accent='uk'; syncAccentUI();
     try { localStorage.setItem(STORAGE_ACCENT, accent); } catch (err) {}
-    if (autoplay) { startAutoplay(); } else { speakSlide(); }
+    unlockSpeech(function(){ if (autoplay) { startAutoplay(); } else { speakSlide(); } });
   });
   document.getElementById('v-us').addEventListener('click', function(e){
     e.stopPropagation(); accent='us'; syncAccentUI();
     try { localStorage.setItem(STORAGE_ACCENT, accent); } catch (err) {}
-    if (autoplay) { startAutoplay(); } else { speakSlide(); }
+    unlockSpeech(function(){ if (autoplay) { startAutoplay(); } else { speakSlide(); } });
   });
   ['spd-slow','spd-norm','spd-fast'].forEach(function(id){
     document.getElementById(id).addEventListener('click', function(e){
@@ -365,7 +450,7 @@
       rate = parseFloat(this.getAttribute('data-rate'));
       syncSpeedUI();
       try { localStorage.setItem(STORAGE_RATE, String(rate)); } catch (err) {}
-      if (autoplay) { startAutoplay(); } else { speakSlide(); }
+      unlockSpeech(function(){ if (autoplay) { startAutoplay(); } else { speakSlide(); } });
     });
   });
   document.addEventListener('keydown', function(e){
