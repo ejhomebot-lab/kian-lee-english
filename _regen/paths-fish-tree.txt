@@ -79,3 +79,21 @@ LEAF2=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/
 LEAF3=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/9b6d5f7e9c8dd9bd43383a01376dae2bb6e6a370a02ca4d69248d7ea81e6dcd3.jpg
 LEAF4=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/04872ea3ee1c2d57cf0c8a0ca72f6cbd7c5ba6182992f15e1780276852393172.jpg
 LEAF5=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/90aeaefb62054e7b052295222f03377d4202746468be941b4c63adc26c2d7f84.jpg
+
+# Soft Cookie (soft-cookie.html)
+# 0 Soft cookie. 1 Soft soft cookie. 2 Hello, cookie. 3 Yummy cookie. 4 Soft crumbs. 5 Soft night, Yin jai.
+COOKIE0=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/26453a310065eededca13c7b6c710a74dfc74a510620ea1ec57d8799321a3aaa.jpg
+COOKIE1=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/efbf95640d73563507e0e962d1748146ee2306887bc6c9838d2c08fb7c176f13.jpg
+COOKIE2=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/03e8e6d507cd7e36e7da56ec4ccb23a29fbdf17180c675b4d0fd990cb98ca68b.jpg
+COOKIE3=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/72464dc416388ef168408678c59c1cf3f3bbf5cfc6050ae1328905b0c5a37170.jpg
+COOKIE4=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/0296277ebaea4ccb641f05a6afd9292b854f127f3b0012b84fb4bab34e55a529.jpg
+COOKIE5=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/9cd0c37c9125e541f9098a954c348bf86e90284e87c14decab2940847a842e3f.jpg
+
+# Soft Pumpkin (soft-pumpkin.html)
+# 0 Soft pumpkin. 1 Soft soft pumpkin. 2 Hello, pumpkin. 3 Soft orange. 4 Happy soft Halloween. 5 Soft night, Yin jai.
+PUMPKIN0=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/4f8cfff2d95e00fa4aee41bc3a29b1bd88dca4154ffded203031c23379112de4.jpg
+PUMPKIN1=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/7e2eb98eb7e4e20096185270faf3f32c9075a80f53ebc9889ca6423c85e07f08.jpg
+PUMPKIN2=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/9f13ecd693443986b6b2eb7ea894c6ded3a126e14285d9a6a9df5e11db6cb94b.jpg
+PUMPKIN3=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/856602c62abe46e17f58b5a27df72f350e9b9c4cf8b73cdf780ada4f7541eaf3.jpg
+PUMPKIN4=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/2067b0d45978bac878ec8afe6def4089b4910ab9859674a5cc82aa45737e057e.jpg
+PUMPKIN5=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/df472bdb859f9619fcf39ab89db099102f7f49bfad78488fe8b2f69fa92ec76c.jpg
