@@ -34,3 +34,12 @@ FLOWER2=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agent
 FLOWER3=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/5e85b04f2f802dc69db73b7ba0dbc493292c184fbf679c9cde5e1261e56fcdce.jpg
 FLOWER4=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/4674268c6112f2e81faeb42aba542e6853c972ac660ccde2917c06e02becd4ef.jpg
 FLOWER5=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/c94fa819d1fc12b812b6ce22f81ff7fba11c40e45882ae20ea8705049cb92c6b.jpg
+
+# Soft Bunny (soft-bunny.html)
+# 0 Soft bunny. 1 Soft soft bunny. 2 Hello, bunny. 3 Hop hop. 4 Soft ears. 5 Soft night, Yin jai.
+BUNNY0=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/f4a79836ecfa278af461d9573f96e66445582f7d904a1da3326c241d8e008af5.jpg
+BUNNY1=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/6a63c48e50fdffd2f2a317ca73867b2e369501a30d4e63bb799fa535c29ed7ed.jpg
+BUNNY2=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/00f1863e9c50ac9cbd465cf13924ab47663507deac461ea5dd85514d17260c0e.jpg
+BUNNY3=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/fec3932343ad5dd55874a670e905120c9de6ac807e40fe418546f16b5bd768e2.jpg
+BUNNY4=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/847cd912a35c5efdc8e9a8266d37e712256ef7f4877beb64c021e30af9a617c9.jpg
+BUNNY5=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/e331e7b7ead5816a53f7806d3cdfd687e6814ad9e6b0c2691f5ba831b0ee96a0.jpg
