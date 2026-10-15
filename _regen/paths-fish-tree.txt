@@ -61,3 +61,21 @@ BUS2=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/1
 BUS3=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/78fcca9cf93c85409f5e75602a11aff9a57420d909e4fbf1ee5f66da26ae4f6d.jpg
 BUS4=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/a4720ccd9d1a1d2e3f91f77436ca4b995e13326e53e11101434e983b0726cfcf.jpg
 BUS5=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/e32c62ec461fef221ebb7b0382ec7160b5da7dd297b8423c4da5097c1e3aa582.jpg
+
+# Soft Wave (soft-wave.html)
+# 0 Soft wave. 1 Soft soft wave. 2 Hello, wave. 3 Splash splash. 4 Soft sea. 5 Soft night, Yin jai.
+WAVE0=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/0fa96ec4e4da5a715b96f09b40d6b6e9b1b84d3f8f7f844a19d7a15a4cfb291a.jpg
+WAVE1=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/0ba9f9bf5f032a501dd2607093664739c06c6c32fe4ac4c8e54ddccd0e41fe8f.jpg
+WAVE2=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/2f04f095af42b932e802700fd362be89bc7795b9f4d1d2fa6ae602b8fd378a02.jpg
+WAVE3=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/639f3bdf5eacea91226297f99770a4aa7818c6381175080ad80a1b7a3035cc03.jpg
+WAVE4=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/56eabccf189c4a88fed76ebb914b5c08ddee04ef0590a876035312ae65f19851.jpg
+WAVE5=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/5cfc66e1f6ca60dca3f829441808eef700924ef52a50d06911276bc06fbd5ce8.jpg
+
+# Soft Leaf (soft-leaf.html)
+# 0 Soft leaf. 1 Soft soft leaf. 2 Hello, leaf. 3 Soft fall. 4 Soft colors. 5 Soft night, Yin jai.
+LEAF0=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/e6cb2de9ec04b2c7cbe14bb0d13be42c8cdca282c4c6eaddf18080ba51dfa095.jpg
+LEAF1=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/0bd07da29a3ee05d4d6d7c67e0f2e730ed109050e629609631d8b83f2f95ec63.jpg
+LEAF2=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/09d76bb333c24bf6d25bfb42008443a15385bbbeadb1ce94c2b664be4e791f63.jpg
+LEAF3=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/9b6d5f7e9c8dd9bd43383a01376dae2bb6e6a370a02ca4d69248d7ea81e6dcd3.jpg
+LEAF4=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/04872ea3ee1c2d57cf0c8a0ca72f6cbd7c5ba6182992f15e1780276852393172.jpg
+LEAF5=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/90aeaefb62054e7b052295222f03377d4202746468be941b4c63adc26c2d7f84.jpg
