@@ -1,1 +1,359 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Kian Lee English</title></head><body><h1>Kian Lee English</h1><p>Coming soon.</p></body></html>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>Kian Lee English · 每日故事站</title>
+<style>
+  :root {
+    --bg: #f7f0ea;
+    --card: #fffcfa;
+    --ink: #4a3f45;
+    --soft: #c47a8a;
+    --muted: #9a8a90;
+    --accent: #e8cfc4;
+    --mint: #eaf5ef;
+    --mint-ink: #6a8f7c;
+    --btn: #efe4dc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    min-height: 100vh;
+    background: radial-gradient(ellipse at top, #fff8f3 0%, var(--bg) 65%);
+    color: var(--ink);
+    font-family: "Segoe UI", "PingFang HK", "Noto Sans TC", system-ui, sans-serif;
+    padding: 1.5rem 1.25rem 3rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 1.25rem; }
+  .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--ink);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    margin-bottom: 0.75rem;
+  }
+  h1 {
+    font-size: clamp(1.6rem, 5vw, 2.1rem);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  .sub {
+    margin-top: 0.5rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .stages {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 1rem 0 1.25rem;
+  }
+  .stage {
+    border: none;
+    border-radius: 999px;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: var(--btn);
+    color: var(--muted);
+  }
+  .stage.on { background: var(--soft); color: #fff; }
+  .stage.soon { opacity: 0.55; }
+  .tip {
+    background: var(--mint);
+    border: 2px dashed var(--mint-ink);
+    color: var(--mint-ink);
+    border-radius: 18px;
+    padding: 0.95rem 1.1rem;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    margin-bottom: 1.35rem;
+  }
+  .tip strong { font-weight: 700; }
+
+  /* Date picker — large taps for iPad */
+  .date-station {
+    background: var(--card);
+    border-radius: 22px;
+    box-shadow: 0 12px 36px rgba(74,63,69,0.08);
+    padding: 1.15rem 1.1rem 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  .date-label {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    text-align: center;
+  }
+  .date-row {
+    display: flex;
+    gap: 0.55rem;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .nav-btn, .today-btn {
+    border: none;
+    border-radius: 16px;
+    min-height: 52px;
+    min-width: 52px;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    background: var(--btn);
+    color: var(--ink);
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+  .nav-btn:active, .today-btn:active { transform: scale(0.97); }
+  .today-btn {
+    background: var(--soft);
+    color: #fff;
+    flex: 0 0 auto;
+  }
+  .date-input-wrap {
+    flex: 1 1 160px;
+    min-width: 160px;
+    max-width: 260px;
+  }
+  input[type="date"] {
+    width: 100%;
+    min-height: 52px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    padding: 0.55rem 0.75rem;
+    border: 2px solid var(--accent);
+    border-radius: 16px;
+    background: #fff;
+    color: var(--ink);
+    font-family: inherit;
+    -webkit-appearance: none;
+  }
+  .date-display {
+    text-align: center;
+    margin-top: 0.85rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .date-display span {
+    color: var(--muted);
+    font-weight: 500;
+    font-size: 0.92rem;
+  }
+
+  /* Story card / empty */
+  .story-panel { min-height: 180px; }
+  a.card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--card);
+    border-radius: 22px;
+    box-shadow: 0 12px 36px rgba(74,63,69,0.08);
+    overflow: hidden;
+    transition: transform .15s ease;
+  }
+  a.card:active { transform: scale(0.98); }
+  .thumb {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.2rem;
+    background: linear-gradient(135deg, #ffe8e0, #fff0f5);
+  }
+  .thumb.cloud { background: linear-gradient(135deg, #e8f0ff, #fff6ea); }
+  .thumb.moon { background: linear-gradient(135deg, #e8e4ff, #fff0e8); }
+  .body { padding: 1.1rem 1.2rem 1.3rem; }
+  .body h2 { font-size: 1.35rem; margin-bottom: 0.3rem; }
+  .meta { color: var(--muted); font-size: 0.92rem; line-height: 1.4; }
+  .sample-tag {
+    display: inline-block;
+    margin-top: 0.55rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    background: var(--accent);
+    color: var(--ink);
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+  }
+  .open-hint {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--soft);
+  }
+  .empty {
+    background: var(--card);
+    border-radius: 22px;
+    box-shadow: 0 8px 24px rgba(74,63,69,0.05);
+    padding: 1.75rem 1.25rem;
+    text-align: center;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  .empty .emoji { font-size: 2.5rem; margin-bottom: 0.6rem; }
+  .empty strong { color: var(--ink); display: block; font-size: 1.15rem; margin-bottom: 0.4rem; }
+  .empty .hint { font-size: 0.95rem; }
+  footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="badge">Kian Lee English · 樣板</div>
+      <h1>Kian Lee English</h1>
+      <p class="sub">Kian Lee English · 每日一個故事：揀日子，用 iPad 自動播放畀然仔睇</p>
+    </header>
+
+    <div class="stages" aria-label="歲數層">
+      <button class="stage on" type="button">而家 · Baby</button>
+      <button class="stage soon" type="button" disabled>Toddler</button>
+      <button class="stage soon" type="button" disabled>Preschool</button>
+      <button class="stage soon" type="button" disabled>Primary</button>
+    </div>
+
+    <div class="tip">
+      <strong>提示：</strong><strong>Kian Lee English</strong>：每日一個故事；用<strong>日子</strong>揀；iPad 請用 Safari 開。<strong>自動播放</strong>同<strong>速度</strong>（慢／正常／快），亦可揀英式／美式女聲。
+    </div>
+
+    <section class="date-station" aria-label="日子選擇">
+      <div class="date-label">日子選擇</div>
+      <div class="date-row">
+        <button type="button" class="nav-btn" id="prevDay" aria-label="前一日">‹ 前一日</button>
+        <div class="date-input-wrap">
+          <input type="date" id="datePick" aria-label="揀日子" />
+        </div>
+        <button type="button" class="nav-btn" id="nextDay" aria-label="後一日">後一日 ›</button>
+        <button type="button" class="today-btn" id="todayBtn">今日</button>
+      </div>
+      <div class="date-display" id="dateDisplay" aria-live="polite"></div>
+    </section>
+
+    <div class="story-panel" id="storyPanel" aria-live="polite"></div>
+
+    <footer>Kian Lee English · for Yin jai · parent review</footer>
+  </div>
+
+  <script src="stories.js"></script>
+  <script>
+(function () {
+  var STORIES = window.RANZAI_STORIES || {};
+  var WEEKDAYS = ["日", "一", "二", "三", "四", "五", "六"];
+
+  function pad(n) { return n < 10 ? "0" + n : String(n); }
+
+  function todayISO() {
+    var d = new Date();
+    return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+  }
+
+  function parseISO(s) {
+    var p = s.split("-");
+    return new Date(+p[0], +p[1] - 1, +p[2]);
+  }
+
+  function toISO(d) {
+    return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+  }
+
+  function shiftDay(iso, delta) {
+    var d = parseISO(iso);
+    d.setDate(d.getDate() + delta);
+    return toISO(d);
+  }
+
+  function formatZh(iso) {
+    var d = parseISO(iso);
+    var w = WEEKDAYS[d.getDay()];
+    return d.getFullYear() + "年" + (d.getMonth() + 1) + "月" + d.getDate() + "日（星期" + w + "）";
+  }
+
+  function availableDates() {
+    return Object.keys(STORIES).sort();
+  }
+
+  function nearestAvailable(prefer) {
+    var keys = availableDates();
+    if (!keys.length) return prefer;
+    if (STORIES[prefer]) return prefer;
+    var best = keys[0];
+    var bestDiff = Math.abs(parseISO(keys[0]) - parseISO(prefer));
+    for (var i = 1; i < keys.length; i++) {
+      var diff = Math.abs(parseISO(keys[i]) - parseISO(prefer));
+      if (diff < bestDiff || (diff === bestDiff && keys[i] > best)) {
+        best = keys[i];
+        bestDiff = diff;
+      }
+    }
+    return best;
+  }
+
+  var datePick = document.getElementById("datePick");
+  var dateDisplay = document.getElementById("dateDisplay");
+  var storyPanel = document.getElementById("storyPanel");
+
+  function render(iso) {
+    datePick.value = iso;
+    var isToday = iso === todayISO();
+    dateDisplay.innerHTML = formatZh(iso) + (isToday ? ' <span>· 今日</span>' : "");
+
+    var story = STORIES[iso];
+    if (!story) {
+      storyPanel.innerHTML =
+        '<div class="empty">' +
+          '<div class="emoji" aria-hidden="true">🌙</div>' +
+          '<strong>呢日未有故事</strong>' +
+          '<p class="hint">試吓揀另一日，或者撳「今日」睇今日嘅故事。</p>' +
+        '</div>';
+      return;
+    }
+
+    var sample = story.sample
+      ? '<span class="sample-tag">樣板（重用檔案）</span>'
+      : "";
+    var thumbCls = "thumb" + (story.thumbClass ? " " + story.thumbClass : "");
+    storyPanel.innerHTML =
+      '<a class="card" href="' + story.file + '">' +
+        '<div class="' + thumbCls + '" aria-hidden="true">' + story.emoji + '</div>' +
+        '<div class="body">' +
+          '<h2>' + story.title + '</h2>' +
+          '<p class="meta">' + story.meta + '</p>' +
+          sample +
+          '<p class="open-hint">撳入去開故事 →</p>' +
+        '</div>' +
+      '</a>';
+  }
+
+  var initial = nearestAvailable(todayISO());
+  render(initial);
+
+  datePick.addEventListener("change", function () {
+    if (datePick.value) render(datePick.value);
+  });
+  document.getElementById("prevDay").addEventListener("click", function () {
+    render(shiftDay(datePick.value || todayISO(), -1));
+  });
+  document.getElementById("nextDay").addEventListener("click", function () {
+    render(shiftDay(datePick.value || todayISO(), 1));
+  });
+  document.getElementById("todayBtn").addEventListener("click", function () {
+    render(todayISO());
+  });
+})();
+  </script>
+</body>
+</html>
