@@ -43,3 +43,21 @@ BUNNY2=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents
 BUNNY3=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/fec3932343ad5dd55874a670e905120c9de6ac807e40fe418546f16b5bd768e2.jpg
 BUNNY4=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/847cd912a35c5efdc8e9a8266d37e712256ef7f4877beb64c021e30af9a617c9.jpg
 BUNNY5=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/e331e7b7ead5816a53f7806d3cdfd687e6814ad9e6b0c2691f5ba831b0ee96a0.jpg
+
+# Soft Apple (soft-apple.html)
+# 0 Soft apple. 1 Soft soft apple. 2 Hello, apple. 3 Yummy apple. 4 Soft red. 5 Soft night, Yin jai.
+APPLE0=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/4ceca14d04f44aca90c1420790b08af95098704dd870ddf6d44598ce9126dd64.jpg
+APPLE1=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/4b4c4634bbca3cbcdc557ac77dcff42b1659f466cb880b0a77816db750baf513.jpg
+APPLE2=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/c74db331a20c83dbd179b502035b9bc1bc37951fe8b4bfd251abb7f6c854e2f4.jpg
+APPLE3=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/a98c588fb87a12212b31fc6368bf299242b2751084afb0dae23af491717011b4.jpg
+APPLE4=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/821f3af989cf597608f03777e9d33c2f458b165be0b2baed6f8f437c7dd400ac.jpg
+APPLE5=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/7d14ec898f989845c50a117fbd313bc6e817b5e69cb58ac599268394805c909d.jpg
+
+# Soft Bus (soft-bus.html)
+# 0 Soft bus. 1 Soft soft bus. 2 Hello, bus. 3 Beep beep. 4 Soft wheels. 5 Soft night, Yin jai.
+BUS0=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/10baec51db3d8dea6951e69a20337b38b591e3961e041b9aec93b26eea8af9b0.jpg
+BUS1=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/57665a8085b974f640b1e08d71b1a9257b7a498ef40f317e2f8126bd53a9c270.jpg
+BUS2=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/e9edb7d8176843fdba7c867473016f5d3d5e6dbd84f89606b14ae7a726da31f3.jpg
+BUS3=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/78fcca9cf93c85409f5e75602a11aff9a57420d909e4fbf1ee5f66da26ae4f6d.jpg
+BUS4=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/a4720ccd9d1a1d2e3f91f77436ca4b995e13326e53e11101434e983b0726cfcf.jpg
+BUS5=/cursor/stores/store-fdfdc03b-9330-4105-99df-85c86b1a85d1/grok-bot/agents/10f7ceb7-f644-4214-9b39-66a2d6d536a0/attachments/e32c62ec461fef221ebb7b0382ec7160b5da7dd297b8423c4da5097c1e3aa582.jpg
