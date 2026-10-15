@@ -1,5 +1,45 @@
 /** Kian Lee English · daily story catalog (prototype) */
 window.RANZAI_STORIES = {
+  "2026-10-25": {
+    id: "soft-bunny",
+    title: "Soft Bunny",
+    emoji: "🐰",
+    file: "soft-bunny.html",
+    meta: "精美卡通 · 英式／美式女聲 · 自動播放／速度",
+    thumbClass: "bunny"
+  },
+  "2026-10-24": {
+    id: "soft-flower",
+    title: "Soft Flower",
+    emoji: "🌸",
+    file: "soft-flower.html",
+    meta: "精美卡通 · 英式／美式女聲 · 自動播放／速度",
+    thumbClass: "flower"
+  },
+  "2026-10-23": {
+    id: "soft-tree",
+    title: "Soft Tree",
+    emoji: "🌳",
+    file: "soft-tree.html",
+    meta: "精美卡通 · 英式／美式女聲 · 自動播放／速度",
+    thumbClass: "tree"
+  },
+  "2026-10-22": {
+    id: "soft-fish",
+    title: "Soft Fish",
+    emoji: "🐟",
+    file: "soft-fish.html",
+    meta: "精美卡通 · 英式／美式女聲 · 自動播放／速度",
+    thumbClass: "fish"
+  },
+  "2026-10-21": {
+    id: "soft-bear",
+    title: "Soft Bear",
+    emoji: "🧸",
+    file: "soft-bear.html",
+    meta: "精美卡通 · 英式／美式女聲 · 自動播放／速度",
+    thumbClass: "bear"
+  },
   "2026-10-20": {
     id: "soft-star",
     title: "Soft Star",
